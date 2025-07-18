@@ -1,0 +1,180 @@
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    
+</head>
+
+
+<body>
+    <div class="dashboardContainer">
+
+      <div class="graphDashboard">
+
+        <div class="graphHeader">
+          <div id="header-col-1">
+            <button class="home_btn">Back to home</button>
+            <select id="mediaSelector">
+              <option value="DVDs">DVDs</option>
+              <option value="Cassettes">Cassettes</option>
+              <option value="Vinyl Records">Vinyl Records</option>
+          </select>
+          </div>
+          <div id="header-col-2">
+            <h2>test</h2>
+            
+        
+            <br>
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" min="2019-01-01" max="2019-01-31" value="2019-01-01">
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" min="2019-01-01" max="2019-01-31" value="2019-01-31">
+        
+          </div>
+          <div id="header-col-3">
+            <p>add time and date here</p>
+
+          <p class="datetime1"></p>
+          </div>
+        </div>
+
+        <div class="graphView">
+          <div id="interactivePlotly"></div>
+          <div id="luxHeatmap"></div>
+          <div id="humidityDensity"></div>
+        </div>
+      </div>
+
+      <!-- DASHBOARD STARTS HERE -->
+      <div class="mainDashboard">
+        
+
+        <div class="greetingCard">
+          <p class="greetingText", style="text-align:left;">Hello, Kira</p>
+          <p style="text-align:left;", class="datetime2"></p>
+        </div>
+
+        
+        
+
+    
+        <select id="zoneSelect">
+          <option value="47" selected>DVD (Theatre)</option>
+          <option value="48">Cassettes (Living Room)</option>
+          <option value="50">Vinyls (Bedroom)</option>
+        </select>
+       
+        <div class="overviewContainer">
+          <div class="taOverview">
+            <div class="taWarning"></div>
+            <div class="taCurrent">N/A</div>
+            <div class="subtitle">temperature</div>
+            <button id="btn_ta">view more</button>
+          </div>
+          <div class="rhOverview">
+            <div class="rhWarning"></div>
+            <div class="rhCurrent">N/A</div>
+            <div class="subtitle">relative humidity</div>
+            <button id="btn_rh">view more</button>
+          </div>
+          <div class="luxOverview">
+            <div class="luxWarning"></div>
+            <div class="luxCurrent">N/A</div>
+            <div class="subtitle">light level</div>
+            <button id="btn_lux">view more</button>
+          </div>
+        </div>
+    
+        <div class="detailedView">
+          <div class="taDetailedView">
+            <div class="varInfo">
+              <div class="varTitleDetailed">Temperature</div>
+              <div class="taBodyDetailed" display="none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui suscipit architecto iure quos pariatur ratione dolorum dicta iusto impedit, excepturi, explicabo, eum unde possimus tenetur repudiandae in itaque inventore tempore.</div>
+              <button class="trend-button" graph="interactivePlotly" data-zone="47">View Temperature Trends <span class="arrow">➜</span></button>
+            </div>
+            
+            <div class="varControl">
+              <button class="tempButton" onclick="decreaseTemp()">−</button>
+              <span class="taValueControl"></span>
+              <button class="tempButton" onclick="increaseTemp()">+</button>
+            </div>
+            
+          </div>
+      
+          <div class="rhDetailedView">
+            <div class="varInfo">
+              <div class="varTitleDetailed">Relative Humidity</div>
+              <div class="rhBodyDetailed" display="none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui suscipit architecto iure quos pariatur ratione dolorum dicta iusto impedit, excepturi, explicabo, eum unde possimus tenetur repudiandae in itaque inventore tempore.</div>
+              <button class="trend-button" graph="humidityDensity" >View Humidity Trends <span class="arrow">➜</span></button>
+            </div>
+            
+            <div class="varControl">
+              <button class="tempButton" onclick="decreaseRH()">−</button>
+              <span class="rhValueControl"></span>
+              <button class="tempButton" onclick="increaseRH()">+</button>
+            </div>
+            
+          </div>
+      
+          <div class="luxDetailedView">
+            <div class="varInfo">
+              <div class="varTitleDetailed">Lux</div>
+              <div class="luxBodyDetailed" display="none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui suscipit architecto iure quos pariatur ratione dolorum dicta iusto impedit, excepturi, explicabo, eum unde possimus tenetur repudiandae in itaque inventore tempore.</div>
+              <button class="trend-button" graph="luxHeatmap">View Light Level Trends <span class="arrow">➜</span></button>
+            </div>
+            
+            <div class="varControl">
+              <button class="tempButton" onclick="decreaseLux()">−</button>
+              <span class="luxValueControl"></span>
+              <button class="tempButton" onclick="increaseLux()">+</button>
+            </div>
+            
+          </div>
+    
+        </div>
+        
+      </div>
+
+    <div class="sideBar">
+      <div class="profile">
+        <img src="assets/profile-pic.png" class="profilePic">
+        <p class="username">Kira</p>
+      </div>
+
+      <div class="myCollectionTitle">My Collection</div>
+
+      <div class="myCollection" id="DVDs">
+        <div class="myCollectionSubtitle">DVDs</div>
+        <p>Location: Theatre<br>Count: 218</p>
+      
+      </div>
+      <div class="myCollection" id="cassettes">
+        <div class="myCollectionSubtitle">Cassettes</div>
+        <p>Location: Living Room<br>Count: 34</p>
+      </div>
+      <div class="myCollection" id="vinyls">
+        <div class="myCollectionSubtitle">Vinyls</div>
+        <p>Location: Study<br>Count: 153</p>
+      </div>
+      
+    </div> 
+
+    </div>
+    
+
+<!-- GRAPHS START HERE -->
+
+
+
+
+    
+    
+
+    <script src="script.js"></script> 
+</body>

@@ -1,0 +1,336 @@
+.navbar {  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem;
+  background-color: #ffffff;
+  color: #1f1f1f;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+  
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+  
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a:last-child {
+  background-color: #8AB7E2; /* try SAMBA now - primary CTA */
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 4rem;
+}
+  
+.nav-links a:nth-last-child(2) { /*login - secondary CTA */
+  color: #1f1f1f;
+  padding: 1rem 2rem;
+  border-color: #8AB7E2;
+  border-width: 2;
+  border-style: solid;
+  border-radius: 4rem;
+}
+  
+.nav-links a {
+  color: #1f1f1f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-flex;          
+  align-items: center; 
+  padding: 0rem 2rem;
+}
+  
+.nav-links a:hover {
+  color: #8AB7E2;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  background-color: #ffffff;
+}
+
+.test-section {
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+  border-radius: 0 0 2rem 2rem;
+  margin-bottom: -32px;
+  z-index: 2;
+}
+  
+/* footer inspo: https://mobbin.com/?redirect_to=/discover/apps/ios/latest , i liked how the rounded corners make it look like the footer is being "revealed" */
+.footer {
+  display: flex;
+  background-image: linear-gradient(#8AB7E2, #B4DAFF);
+  padding: 6rem 0 6rem 0;
+  position: sticky;
+  bottom: 0;
+  z-index: -1;
+}
+
+.hero-content-wrapper {
+  width: 100%;            
+  max-width: 1200px;        
+  margin: 0.5rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1rem;  
+}
+
+.hero-text {
+  flex: 1.5;
+  color:#1f1f1f;  
+}
+
+.hero-image {
+  flex: 2;
+}
+
+.hero-image1 {
+  width: 100%;
+  max-width: none;
+}
+  
+.hero-text h1 {
+  font-size: 48px;
+}
+  
+.hero-text p {
+  font-size: 20px;
+}
+  
+.background-layer {
+  position: relative;
+  height:700px; 
+}
+  
+.samba-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 600px;
+  z-index: 3; /* Ensures it sits beneath */
+  background-image: linear-gradient(#8AB7E2, #B4DAFF);
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+  
+
+.card-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 1200px; 
+  z-index: 3;    /* make sure it sits above .samba-info */
+}
+.samba-heading {
+  flex-basis: 100%;              /* makes it go across full width on first line */
+  font-size: 2rem;
+  color: #1f1f1f;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.store-card, .track-card, .preserve-card {
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: #004F9A;
+  border-width: 2px;
+  z-index: 3;
+  
+}
+
+.card-title {
+  margin: 2rem;
+  font-size: 25px;
+  font-weight: 600;
+  color: #004F9A;
+  
+}
+
+.card-body-text {
+  margin-left: 2rem;
+  font-size: 20px;
+  color: #1f1f1f;
+}
+  
+/*SAMBA SENSOR INFO*/
+
+.section-heading {
+  font-weight: 800;
+  font-size: 40px;
+  text-align: center;
+  color: #004F9A;
+}
+
+.sensor-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+.sensor-wrapper {
+  position: relative;    /* anchors child positioning */
+  display: inline-block; 
+}
+
+.samba-sensors-image {
+  display: block;
+  height: 500px;
+  max-width: 100%;
+  padding: 2rem;
+}
+
+.light-icon-image {
+  position: absolute;    /* positions relative to sensor-wrapper */
+  top: -11%;              
+  left: 17%;             
+  width: 15%;
+  height: auto;
+}
+
+.temp-icon-image {
+  position: absolute;
+  top: 26%;
+  left: 73%;
+  width: 15%;
+  height: auto;
+}
+
+.light-popup, .temp-popup { /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_display_element_hover */
+  display: none;
+  position: absolute;
+  
+  width: 300px;
+  height: 100px;
+  border-radius: 20px;
+  background-color:#B4DAFF;
+  padding: 0rem 0rem 1rem 1rem;
+}
+
+.light-popup {
+  top: -11%;              
+  left: 35%;
+}
+
+.temp-popup {
+  top: 26%;              
+  left: 91%;
+}
+
+.popup-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #004F9A;
+  
+}
+
+.popup-text {
+  font-size: 15px;
+  font-weight: 400;
+  color: #1f1f1f;
+}
+
+
+.light-icon-image:hover + .light-popup{
+  display: block;
+}
+
+.temp-icon-image:hover + .temp-popup{
+  display: block;
+}
+
+
+/* TEST TEST */
+
+.collection-container {
+  margin: 100px 0px 100px 0px;
+  position: relative;    
+  display: inline-block; 
+  background-color:#8AB7E2;
+  width: 100%;
+  height: auto;
+  padding: 50px 0px 50px 0px;
+  overflow: visible;
+}
+
+svg {
+  width: 100%;
+  max-width: 100vw;
+  height: auto;
+  font-size: 20px;
+  font-weight: 600;
+  overflow: visible;
+}
+
+.reason {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.number {
+  color: #004F9A;
+  margin-left: 2rem;
+  font-size: 50px;
+  font-weight:800;
+}
+
+.subtitle {
+  margin-left: 2rem;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#no1 {
+  top: 30%;
+  left: 2%;
+}
+
+#no2 {
+  top: 72%;
+  left: 33%;
+}
+
+#no3 {
+  top: 18%;
+  left: 55%;
+}
+
+#no4 {
+  top: 60%;
+  left: 78%;
+}
+
+.footer {
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-image: linear-gradient(#8AB7E2, #B4DAFF);
+}
+  
+  

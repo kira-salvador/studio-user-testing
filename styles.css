@@ -1,0 +1,424 @@
+/* ----------------------------------------------------------------   GENERAL   ----------------------------------------------------------------------------------*/
+
+.dashboardContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+}
+
+.sideBar {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content:flex-start;
+  width: 20%;
+  height: 90vh;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  margin: 20px 20px 20px 20px;
+  position: sticky;
+  top: -1000vh;
+  left: 20px; 
+}
+
+.profile {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: -30px;
+}
+
+.profilePic {
+  width: 30%;
+  height: 30%;
+}
+
+.username {
+  font-size: 32px;
+  font-weight: 600;
+  color: #636AC3;
+
+}
+
+.myCollection {
+  display: flex;
+  flex-direction: column; /*stack vertically*/
+  
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  background-color: #F9F9F9;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 5%;
+  color: #636AC3;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+
+}
+.myCollectionTitle {
+  align-self: flex-start;
+  margin-top: 20px;
+  margin-left: 0px;
+
+  text-align: left;
+  font-weight: 600;
+  font-size: 20px;
+  color: #F9F9F9;
+}
+
+.myCollectionSubtitle {
+  text-align: left;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/* ----------------------------------------------------------------   MAIN DASHBOARD SECTION   ----------------------------------------------------------------------------------*/
+
+body,  .greetingCard {
+  margin: 0;
+  background: linear-gradient(to bottom left, #A0B7E7 , #BDE7F5);
+  font-family: 'Nunito', sans-serif;
+}
+
+.mainDashboard {
+  display: flex;
+  flex-direction: column; /*stack vertically*/
+  align-items: center;
+  justify-content: space-between;
+  width: 75%;
+  height: 90vh;
+  background-color: #F9F9F9;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  margin: 20px 20px 20px 20px;
+  position: sticky;
+  top: -1000vh;
+  left: 20px;
+}
+
+.greetingText, .datetime1, .datetime2 {
+  color: #5258ad;
+}
+
+.greetingCard {
+  width: 96%;
+  height: 18%;
+  opacity: 0.8;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  margin-top: 5px;
+}
+
+.greetingText {
+  font-size: 32px;
+  font-weight: 600;
+  transform: translateY(-30%);
+}
+
+.datetime1, .datetime2 {
+  font-size: 48px;
+  font-weight: 700;
+  transform: translateY(-100%);
+}
+
+.overviewContainer { /*https://www.w3schools.com/css/css3_flexbox_container.asp*/
+  overflow: hidden;
+
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: stretch;
+  gap: 30px; /*https://copilot.microsoft.com/shares/BdVu4XRoynPJ7ygzg2LVi --> used copilot to figure out how to stretch the child flex boxes to the edge of the parent */
+}
+
+#zoneSelect {
+  align-self: flex-end;
+  margin-bottom: 10px; /* Adds spacing below the dropdown */
+  width: 200px; /* Adjust width */
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #5258ad; /* Styled border */
+  background-color: #F9F9F9; /* Matches your mainDashboard */
+  color: #5258ad;
+  cursor: pointer;
+}
+
+#zoneSelect:hover, #zoneSelect:focus {
+  background-color: #D8E2FF; /* Light color for interaction */
+  border-color: #3346a8;
+}
+
+#zoneSelect option {
+  padding: 10px;
+  background: #FFFFFF;
+  color: #5258ad;
+}
+
+.taOverview, .luxOverview, .rhOverview {
+  position: relative; /* crucial for positioning the warning inside */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% / 3);
+  height: 170px;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  text-align: center;
+  
+  row-gap: 5px;
+}
+
+.taCurrent, .rhCurrent, .luxCurrent {
+  padding-top: 20px;
+  padding-left: 5px;
+  font-size: 64px;
+  font-weight: 800;
+  color: #5258ad;
+}
+
+.subtitle {
+  margin-top: -16px;
+  font-size: 14;
+  font-weight: 600;
+  color: #636AC3;
+}
+
+.detailedView {
+  display: flex;
+
+  width: 96%;
+  height: 25%;
+  opacity: 0.8;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  margin-bottom: 5px;
+  background-color: #FFFFFF;
+
+  text-align: left;
+
+  overflow: hidden;
+}
+
+.taDetailedView, .rhDetailedView, .luxDetailedView {
+  width: 100%;
+  height: 100%;
+  
+  text-align: left;
+
+  overflow: hidden;
+}
+
+.taDetailedView {
+  display: flex;
+}
+
+.rhDetailedView, .luxDetailedView {
+  display: none;
+}
+
+.varTitleDetailed{ 
+  font-weight: 600;
+  font-size: 24px;
+  width: 100%;
+}
+
+.taBodyDetailed, .rhBodyDetailed, .luxBodyDetailed {
+  font-weight: 400;
+  font-size: 14px;
+  width: 100%;
+}
+
+.sensorValue { 
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
+
+.varInfo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 20px;
+}
+
+.varControl {
+  flex: 1;
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+#temperature {
+  font-size: 2em;
+  margin: 20px;
+}
+
+.tempButton {
+  width: 50px;
+  height: 50px;
+  font-size: 1.5em;
+  border-radius: 100%;
+  cursor: pointer;
+  z-index:100;
+  color: #FFFFFF;
+  background-color:#5258ad;
+  border-color: #5258ad;
+  border-width: 3px;
+}
+
+.taWarning, .rhWarning, .luxWarning {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  margin-bottom: 8px;
+
+  height: 15%;
+  font-size: 14;
+  font-weight: 600;
+  
+  color: #636AC3;
+  
+  background-color: #FFE27B;
+  text-align: center;
+
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  z-index: 1;
+}
+
+.taValueControl, .rhValueControl, .luxValueControl {
+  font-size: 68px;
+  font-weight: 700;
+}
+
+.trend-button {
+  padding: 10px 20px;
+  margin: 20px, 10px, 20px, 10px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #DFF8FF;
+  font-family: 'Nunito', sans-serif;
+  color: #636AC3;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#btn_ta, #btn_rh, #btn_lux {
+  padding: 10px 20px;
+  margin: 20px, 10px, 20px, 10px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #DFF8FF;
+  font-family: 'Nunito', sans-serif;
+  color: #636AC3;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* ----------------------------------------------------------------   GRAPH SECTION   ----------------------------------------------------------------------------------*/
+
+.graphDashboard {
+  display: none;
+  flex-direction: column; /*stack vertically*/
+  align-items: center;
+  justify-content: space-between;
+  width: 75%;
+  height: 90vh;
+  background-color: #F9F9F9;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  margin: 20px 20px 20px 20px;
+  position: sticky;
+  top: -1000vh;
+  left: 20px;
+}
+
+.graphHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 30px; /*gap between columns*/
+  background-color: #e7a0e5; /*delete later*/
+  width: 96%;
+  height: 25%;
+  opacity: 0.8;
+  border-radius: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+  /*margin-top: 5px;*/
+}
+
+#header-col-1 {
+  display: flex;
+  flex-direction: column;
+  background-color: #a0e7b2;
+  flex-grow: 1;
+  height: 100%;
+  border-radius: 20px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+#header-col-2 {
+  background-color: #a0e7b2;
+  flex-grow: 3;
+  height: 100%;
+  border-radius: 20px;
+}
+
+#header-col-3 {
+  background: linear-gradient(to bottom left, #A0B7E7 , #BDE7F5);
+  opacity: 0.8;
+  flex-grow: 1.5;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.graphView {
+  display: flex;
+
+  width: 100%;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+  
+  border-radius: 20px;
+  
+  
+  margin-bottom: 5px;
+  background-color: #FFFFFF;
+  align-items: stretch;
+
+
+  overflow: hidden;
+}
+
+#interactivePlotly, #humidityDensity, #luxHeatmap {
+    position: relative;
+    display: none;
+    padding: 20px 0px 20px 0px;
+}

@@ -1,0 +1,4 @@
+media_type,min_ta,max_ta,min_rh,max_rh,min_lux,max_lux
+DVDs,18,20,30,50,0,100
+Cassettes,16,22,35,55,0,150
+Vinyl Records,16,20,40,50,0,50
